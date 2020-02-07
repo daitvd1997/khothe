@@ -3,8 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiToken: "test",
+  apiUrl: "https://bank.thecao365.com"
+  //apiUrl: "http://localhost:8881"
 };
+export const RESPONSE_STAUS = {
+  FAIL : 1,
+  SUCCESS: 0
+};
+export const TOKEN = {
+  FAIL : 1,
+  SUCCESS: 0
+};
+
 
 /*
  * For easier debugging in development mode, you can import the following file

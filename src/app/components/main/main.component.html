@@ -1,0 +1,18 @@
+<div class="container">
+    <ul>
+    <li>
+        <a [routerLink]="['/cardhistory']">Lịch sử mua thẻ</a>
+    </li>
+    <li>
+        <a [routerLink]="['/money']">Lịch sử trừ tiền</a>
+    </li>
+    <li>
+        <a [routerLink]="['/buycard']">Mua thẻ</a>
+    </li>
+    <li>
+        Tai Khoan
+    </li>
+</ul>
+</div>
+<input type="password" [(ngModel)]="token"/><button (click)="setToken()">Set Token</button>
+<router-outlet></router-outlet>

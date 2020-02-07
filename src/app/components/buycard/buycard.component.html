@@ -1,0 +1,54 @@
+<div class="container">
+    
+    
+    <div class="input-group">        
+        <span class="label">Nhà mạng</span>        
+        <select [(ngModel)]="type" name="cardtype" id="type">
+            <option value="1">Viettel</option>
+            <option value="2">Vina</option>
+            <option value="3">Mobi</option>
+        </select>
+    </div>
+    <div class="input-group">        
+        <span class="label">Mệnh giá</span>        
+        <select [(ngModel)]="value" name="cardtype" id="type">
+            <option value="10000">10.000</option>
+            <option value="20000">20.000</option>
+            <option value="30000">30.000</option>
+            <option value="50000">50.000</option>
+            <option value="100000">100.000</option>
+            <option value="200000">200.000</option>
+            <option value="300000">300.000</option>
+            <option value="500000">500.000</option>
+            <option value="1000000">1.000.000</option>
+        </select>
+    </div>
+    <div class="input-group">        
+        <span class="label">Số lượng thẻ</span>        
+        <input type="number" [(ngModel)]="count" id="value"/>
+    </div>
+    
+    <button (click)="buycard()">Mua</button>
+    
+    <div class="container">
+        <div *ngFor="let card of list">
+            <div class="input-group">        
+                <span class="label">Mã thẻ: {{card.code}}</span>     
+            </div>
+            <div class="input-group">        
+                <span class="label">Seri: {{card.seri}}</span>  
+            </div>
+            <div class="input-group">        
+                <span class="label">Nhà mạng: {{card.type == 1 ? 'Viettel' : card.type == 2 ? 'Vina' : 'Mobi'}}</span>        
+                
+            </div>
+            <div class="input-group">        
+                <span class="label">Mệnh giá: {{card.value}}</span>        
+            </div>
+            <div class="input-group">        
+                <span class="label">Thời gian: {{card.date}}</span>        
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>

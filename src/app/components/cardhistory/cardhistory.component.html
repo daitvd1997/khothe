@@ -1,0 +1,90 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="page">
+    <div class="page-content d-flex align-items-stretch">
+        <div class="content-inner">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom">Dashboard</h2>
+                </div>
+            </header>
+            <!-- Dashboard Counts Section-->
+            <section class="dashboard">
+                <h2 class="text-center config-title-h1">Lịch sử mua thẻ</h2>
+                <div class="container-fluid">
+                    <div class="container-fluid">
+                        <button (click)="loading()">Tải dữ liệu</button>
+                        <div class="example-container mat-elevation-z8">
+                            <mat-table [dataSource]="listData" matSort>
+                                <!-- cài đặt các row mat-sort-header cho phép người dùng sort -->
+                                <ng-container matColumnDef="ID">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã Giao dịch</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="CODE" sticky>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mã nạp</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.code}}</mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="SERI" sticky>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Seri</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.seri}}</mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="VALUE" sticky>
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Mệnh giá</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.value | currency:'VND'}}
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="TYPE">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Nhà mạng</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.type == 1 ? 'Viettel' : element.type ==2 ? 'Vina' : 'Mobi'}}</mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="TIMEBUY">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header>Ngày mua
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.date | date:'hh:mm:ss - dd/MM/yyyy'}}</mat-cell>
+                                </ng-container>
+                                <!-- Hàng hiện các nút icon hành động -->
+                                <ng-container matColumnDef="ACTIONS">
+                                    <mat-header-cell *matHeaderCellDef>Lệnh</mat-header-cell>
+                                    <mat-cell *matCellDef="let row">
+                                        <!-- có thể custom các nút ở đây -->
+                                        <!-- <button mat-icon-button color="red" (click)="reCall(row.id)"> -->
+                                        <mat-icon>launch</mat-icon>
+                                        Callback
+                                        <!-- </button> -->
+                                        <!-- <button mat-icon-button color="warn">
+                                                <mat-icon>launch</mat-icon>
+                                            </button> -->
+                                    </mat-cell>
+                                </ng-container>
+                                <!-- end hành động -->
+                                <!-- cài đặt các header lấy từ biến displayedColumns -->
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                <!-- end cài đặt biến -->
+
+                                <!-- Hàng hiện trạng thái đang loading nếu loading xong sẽ biến mất -->
+                                <!-- <ng-container matColumnDef="loading">
+                                    <mat-footer-cell *matFooterCellDef colspan="6">
+                                        Loading data...
+                                    </mat-footer-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="noData">
+                                    <mat-footer-cell *matFooterCellDef colspan="6">
+                                        No data.
+                                    </mat-footer-cell>
+                                </ng-container>
+                                <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}">
+                                </mat-footer-row>
+                                <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}">
+                                </mat-footer-row> -->
+                                <!-- end loading -->
+                            </mat-table>
+                            <!-- hiện paging trang -->
+                            <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageOption" showFirstLastButtons (page)="getServerData($event)">
+                            </mat-paginator>
+                            <!-- kết thúc page -->
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
