@@ -1,0 +1,43 @@
+input {
+    margin: 15px 0;
+    padding: 10px 10px;
+    width: 200px;
+    outline: none;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    display: inline-block;
+}
+input[type="password"]:focus {
+    border-color: #1e88e5;
+}
+
+.btn-token {
+    border-radius: 20px;
+    margin-left: 10px;
+    padding: 10px 10px;
+}
+
+.menu ul {
+    list-style-type: none;
+    text-align: center;
+    background: #1f568b;
+}
+
+.menu li {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.menu a:hover {
+    background: #f1f1f1;
+    color: #333;
+}

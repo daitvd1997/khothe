@@ -1,0 +1,8 @@
+.btn-select {
+    width: 100px;
+    margin: 15px 0;
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #bbb;
+    display: inline-block;
+}

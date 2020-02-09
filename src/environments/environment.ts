@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   apiToken: "test",
-  apiUrl: "https://bank.thecao365.com"
-  //apiUrl: "http://localhost:8881"
+  // apiUrl: "https://bank.thecao365.com"
+  apiUrl: "http://localhost:8881"
 };
 export const RESPONSE_STAUS = {
   FAIL : 1,
